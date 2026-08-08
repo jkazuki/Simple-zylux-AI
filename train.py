@@ -12,19 +12,19 @@ DATA_PATH = 'input_chatbot.txt'
 MODEL_SAVE_PATH = 'chatbot_model.pth' 
 TOKENIZER_PATH = 'tokenizer_chat.pkl' 
 
-batch_size = 2                   
-block_size = 2048              
-grad_accumulation = 32        
+batch_size = 1                   
+block_size = 4096             
+grad_accumulation = 64       
 max_iters = 10000         
 eval_interval = 500          
-learning_rate = 5e-4          
+learning_rate = 1e-4          
 eval_iters = 30                 
 
 # kiến trúc mô hình
-n_embd = 512                    
-n_head = 8                        
-n_layer = 12                   
-dropout = 0.25
+n_embd = 4096                  
+n_head = 32                       
+n_layer = 32                   
+dropout = 0.0
 device = 'cuda' if torch.cuda.is_available() else 'cpu'
 # =========================================================================
 
