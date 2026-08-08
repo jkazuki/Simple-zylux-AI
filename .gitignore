@@ -1,0 +1,43 @@
+# ==========================================
+# Python Environments & Cache
+# ==========================================
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+env/
+.env
+
+# ==========================================
+# AI Model Weights & Checkpoints
+# ==========================================
+# Ignore all PyTorch model files
+*.pth
+*.pt
+
+# Ignore specific model files explicitly
+chatbot_model.pth
+code_model.pth
+
+# Ignore the automated backup directory generated during training
+checkpoints_backup/
+
+# ==========================================
+# Tokenizers & Serialized Data
+# ==========================================
+# Ignore pickle files used for tokenizer data
+*.pkl
+tokenizer_chat.pkl
+tokenizer_code.pkl
+
+# ==========================================
+# Datasets & Raw Text
+# ==========================================
+# Ignore the raw training data to prevent bloating the repository
+input_chatbot.txt
+
+# ==========================================
+# OS Generated Files
+# ==========================================
+.DS_Store
+Thumbs.db
