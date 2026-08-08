@@ -2,7 +2,7 @@
 
 This repository contains a complete, from-scratch implementation of a Transformer-based Large Language Model (LLM) ecosystem. It features a custom Dynamic Byte-Pair Encoding (BPE) tokenizer, an advanced causal language model built in PyTorch, and a dual-model client architecture capable of seamless context switching between general conversation and specialized code generation.
 
-## 🌟 Features
+##  Features
 
 *   **Custom Transformer Architecture**: Implements a GPT-style causal language model utilizing Multi-Head Attention, GeLU activations, and Layer Normalization.
 *   **Dynamic BPE Tokenizer**: A fully custom tokenizer that trains directly from text data, dynamically adjusting its vocabulary size up to a configured maximum limit.
@@ -14,19 +14,19 @@ This repository contains a complete, from-scratch implementation of a Transforme
 *   **Hardware Optimized**: Leverages PyTorch 2.0+ Automatic Mixed Precision (`torch.amp.autocast` using `bfloat16`) and sets `torch.set_float32_matmul_precision('high')` for maximized training performance on modern CUDA hardware.
 *   **Self-Healing Checkpoint Loading**: If a model checkpoint is loaded but the vocabulary size has changed, the inference script automatically detects the structural mismatch and rebuilds the embedding tables to safely load the weights.
 
-## 📂 Project Structure
+##  Project Structure
 
 *   `train.py`: The core training script. Defines the `AdvancedLanguageModel` class (Transformer blocks), manages the training loop, gradient accumulation, and interval checkpoint saving.
 *   `tokenizer_utils.py`: Contains the `DynamicBPETokenizer` class. Handles byte-pair encoding from scratch, token frequency counting, merging, and saving/loading the vocabulary maps.
 *   `client.py` *(Main Entry)*: The interactive CLI application that handles user inputs, maintains dialogue history, dynamically builds context prompts, and orchestrates the handoff between the Chat and Code models.
 
-## ⚙️ Prerequisites
+##  Prerequisites
 
 *   Python 3.8+ (Optimized and tested for Python 3.12)
 *   PyTorch 2.0+ (Required for `scaled_dot_product_attention` and `bfloat16`)
 *   A CUDA-compatible GPU is highly recommended for reasonable training speeds.
 
-## 🚀 Installation & Setup
+##  Installation & Setup
 
 1.  **Clone the repository and install dependencies**:
     ```bash
@@ -35,7 +35,7 @@ This repository contains a complete, from-scratch implementation of a Transforme
 2.  **Prepare Training Data**:
     Create a text file named `input_chatbot.txt` in the root directory. This file should contain your raw training dialogue formatted with `<|endofline|>` tokens separating individual conversational turns.
 
-## 🧠 Training the Model
+##  Training the Model
 
 To begin training the primary chat model, run:
 ```bash
@@ -47,7 +47,7 @@ python train.py
 *   **Training Loop**: Max iterations = 10,000, Batch Size = 2, Block Size = 2048, Gradient Accumulation = 32 steps.
 *   **Checkpoints**: The model continuously saves primary weights to `chatbot_model.pth` and periodically saves interval backups into the `checkpoints_backup/` directory.
 
-## 💬 Running the Client
+##  Running the Client
 
 Once training is complete (or if you already have pre-trained `.pth` weights), launch the chat interface:
 ```bash
